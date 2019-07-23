@@ -2,7 +2,12 @@ import React from 'react';
 
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
-import { Grommet, Heading } from 'grommet';
+import { Grommet } from 'grommet';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import HomePage from './pages/Home';
+import CreateBookPage from './pages/books/Create';
+import EditBookPage from './pages/books/Edit';
 
 import config from './config';
 import theme from './style/theme';
@@ -16,9 +21,11 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Grommet theme={theme}>
-        <Heading level={1} color="brand" textAlign="center" margin="auto">
-          Hello Alacrity
-        </Heading>
+        <Router>
+          <Route path="/" exact component={HomePage} />
+          <Route path="/books/create" component={CreateBookPage} />
+          <Route path="/book/:bookId" component={EditBookPage} />
+        </Router>
       </Grommet>
     </ApolloProvider>
   );
