@@ -39,7 +39,7 @@
     ]
   },
   "devDependencies": {
-    "eslint": "^6.1.0",
+    "eslint": "5.16.0",
     "eslint-config-prettier": "^6.0.0",
     "eslint-config-standard": "^13.0.1",
     "eslint-config-standard-react": "^8.0.0",
