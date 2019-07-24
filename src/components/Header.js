@@ -11,7 +11,7 @@ const Header = ({ showAddNew, ...props }) => (
     direction="row"
     align="center"
     justify="between"
-    margin={{ left: 'auto', right: 'auto', bottom: 'xlarge' }}
+    margin={{ left: 'auto', right: 'auto', bottom: 'medium' }}
     pad={{ left: 'medium', right: 'medium', vertical: 'medium' }}
     border={{ style: 'solid', size: 'small', color: 'brand', side: 'bottom' }}
     style={{ zIndex: '1' }}
