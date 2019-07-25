@@ -1,8 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { Box, Button, RoutedAnchor } from 'grommet';
+import { Box, Button, Text } from 'grommet';
 import { Add } from 'grommet-icons';
+
+const StyledLink = styled(Link)`
+  &,
+  &:hover {
+    text-decoration: none;
+  }
+`;
 
 /** App header */
 const Header = ({ showAddNew, ...props }) => (
@@ -17,7 +25,11 @@ const Header = ({ showAddNew, ...props }) => (
     border={{ style: 'solid', size: 'small', color: 'brand', side: 'bottom' }}
     style={{ zIndex: '1' }}
     {...props}>
-    <RoutedAnchor path="/" label="Alacrity Law" size="large" margin={{ top: '8px' }} primray />
+    <StyledLink to="/" style={{ '::hover': { textDecoration: 'none' } }}>
+      <Text size="large" margin={{ top: '8px' }} primray>
+        Alacrity Law
+      </Text>
+    </StyledLink>
     {showAddNew && (
       <Link to="/books/create">
         <Button icon={<Add />} label="Add book" primary color="accent-1" />
