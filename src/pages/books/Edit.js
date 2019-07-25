@@ -17,16 +17,25 @@ const EditBook = ({ match, history }) => {
   return (
     <Query query={GET_BOOK} variables={{ bookId }} fetchPolicy="network-only">
       {({ loading, error, data }) => {
+        // Method for easier rendering Loader component
         const renderLoader = () => <Loader />;
 
+        // Method for easier rendering Error component
         const renderError = () => <Error message="Something went wrong. Please try again" />;
 
+        // Method for rendering content
         const renderContent = () => {
+          // Render error message if error exits or there is no books data
           if (error || !data.book) return renderError();
 
           return (
             <Mutation mutation={EDIT_BOOK} refetchQueries={() => [{ query: GET_BOOKS }]}>
               {(editBook, { loading, error }) => {
+                /**
+                 * Method for handling form submitting
+                 *
+                 * @param {Object} variables - Object containing values user entered in form
+                 */
                 const onSubmit = async variables => {
                   await editBook({ variables });
                   if (!loading && !error) history.push('/');
@@ -57,7 +66,10 @@ const EditBook = ({ match, history }) => {
 };
 
 EditBook.propTypes = {
+  /** Object containing data about current route passed autommatically by react-router-dom */
   match: PropTypes.object,
+
+  /** History object passed autommatically by react-rotuer-dom  */
   history: PropTypes.object,
 };
 
