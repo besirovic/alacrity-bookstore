@@ -1,7 +1,21 @@
 {
   "extends": ["standard", "standard-react", "standard-jsx", "plugin:prettier/recommended"],
+  "plugins": ["cypress"],
+  "env": {
+    "node": true,
+    "browser": true,
+    "jest": true,
+    "es6": true,
+    "amd": true,
+    "mocha": true
+  },
+  "globals": {
+    "expect": true,
+    "cy": true
+  },
   "rules": {
     "prettier/prettier": "error",
-    "semi": 0
+    "semi": 0,
+    "cypress/globals": true
   }
 }
