@@ -16,7 +16,11 @@ const SelectedBooksSummary = ({ count, price }) => (
 
     {count > 0 && (
       <Text>
-        You have selected <strong>{count} books</strong> and total price is
+        You have selected{' '}
+        <strong>
+          {count} book{count > 1 && 's'}
+        </strong>{' '}
+        and total price is
         <strong> $</strong>
         <strong>{parseFloat(price).toFixed(2)}</strong>
       </Text>
