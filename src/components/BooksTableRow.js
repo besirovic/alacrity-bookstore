@@ -1,20 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { TableRow, TableCell, CheckBox, Button } from 'grommet';
+import { Mutation } from 'react-apollo';
 import { Link } from 'react-router-dom';
+import { TableRow, TableCell, CheckBox, Button } from 'grommet';
 import { Edit } from 'grommet-icons';
 
-const BooksTableRow = ({ title, author, price, bookId, onSelect }) => {
-  const [checked, setChecked] = useState(false);
+import { TOGGLE_BOOK_SELECTION } from '../graphql/mutations/books';
 
-  useEffect(() => {
-    onSelect(bookId, checked);
-  }, [checked]);
-
+/** Component for displaying single row in books table */
+const BooksTableRow = ({ title, author, price, bookId, isSelected }) => {
   return (
     <TableRow>
       <TableCell>
-        <CheckBox checked={checked} onChange={e => setChecked(e.target.checked)} />
+        <Mutation mutation={TOGGLE_BOOK_SELECTION}>
+          {toggleBookSelection => (
+            <CheckBox checked={isSelected} onChange={() => toggleBookSelection({ variables: { bookId } })} />
+          )}
+        </Mutation>
       </TableCell>
       <TableCell>{title}</TableCell>
       <TableCell>{author}</TableCell>
@@ -29,11 +31,20 @@ const BooksTableRow = ({ title, author, price, bookId, onSelect }) => {
 };
 
 BooksTableRow.propTypes = {
+  /** Title of the book */
   title: PropTypes.string.isRequired,
+
+  /** Author of the book */
   author: PropTypes.string.isRequired,
+
+  /** Price of the book */
   price: PropTypes.number.isRequired,
+
+  /** Unique book ID */
   bookId: PropTypes.number.isRequired,
-  onSelect: PropTypes.func.isRequired,
+
+  /** Marking book as selected or not */
+  isSelected: PropTypes.bool.isRequired,
 };
 
 export default BooksTableRow;
