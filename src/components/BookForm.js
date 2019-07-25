@@ -7,7 +7,17 @@ import { Link } from 'react-router-dom';
 
 import Error from '../components/Error';
 
+/** Reusable from component which can be used for creating and editing book */
 const BookForm = ({ book, error, loading, onSubmit }) => {
+  /** Error message do display when network or some other error occur */
+  const errorMessage = 'Something went wrong, please try again';
+
+  /** Error message to display when validation error occur */
+  const validationErrorMessage = 'You must fill all inputs with correct data. Please try again';
+
+  /**
+   * Yup validation schema for valiating form
+   */
   const validationSchema = yup.object().shape({
     title: yup.string().required(),
     author: yup.string().required(),
@@ -21,7 +31,10 @@ const BookForm = ({ book, error, loading, onSubmit }) => {
       validateOnChange={false}
       validateOnBlur={false}
       onSubmit={(values, { setSubmitting }) => {
+        /** Submit form */
         onSubmit(values);
+
+        /** Set submitting state to false */
         setSubmitting(false);
       }}>
       {({ handleChange, handleBlur, handleSubmit, errors, values }) => (
@@ -61,17 +74,21 @@ const BookForm = ({ book, error, loading, onSubmit }) => {
               />
             </Box>
 
-            {Object.entries(errors).length > 0 && (
-              <Error message="You must fill all inputs with correct data. Please try again" />
+            {(Object.entries(errors).length > 0 || error) && (
+              <Error message={error ? errorMessage : validationErrorMessage} />
             )}
-
-            {error && <Error message="Something went wrong, please try again" />}
 
             <Box alignSelf="end" justify="end" direction="row" margin={{ top: 'medium' }}>
               <Link to="/">
                 <Button primary color="light-6" label="Cancel" margin={{ right: 'medium' }} />
               </Link>
-              <Button primary type="submit" color="accent-1" label={loading ? 'Please wait ...' : 'Submit'} />
+              <Button
+                primary
+                type="submit"
+                color="accent-1"
+                label={loading ? 'Please wait ...' : 'Submit'}
+                disabled={loading}
+              />
             </Box>
           </Form>
         </Box>
@@ -81,9 +98,16 @@ const BookForm = ({ book, error, loading, onSubmit }) => {
 };
 
 BookForm.propTypes = {
+  /** Object containing book attributes which will be used as default values in form if provided */
   book: PropTypes.object,
+
+  /** Error which might occur during running mutation. Used to display error at same position in form */
   error: PropTypes.any,
+
+  /** Indicate loading state when data are sending by mutation */
   loading: PropTypes.bool,
+
+  /** Function will be executed as callback when form is submittted */
   onSubmit: PropTypes.func.isRequired,
 };
 
