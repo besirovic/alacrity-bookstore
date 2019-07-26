@@ -1,10 +1,10 @@
-<center>
+<div align="center">
   <h1>Alaciry Law</h1>
 
   Simple bookstore app developed as interview tech test for [Alacrity Law](http://alacritylaw.com)
   
   <hr>
-</center>
+</div>
 
 ## Table of content
 - [Table of content](#table-of-content)
