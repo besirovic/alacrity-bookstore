@@ -1,8 +1,9 @@
+/** @file React component for displaying number of selected books and their total price */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Text } from 'grommet';
 
-/** Display number of selected books and their total price */
 const SelectedBooksSummary = ({ count, price }) => (
   <Box
     background="accent-1"

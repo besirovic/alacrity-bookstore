@@ -1,3 +1,5 @@
+/** @file React component for displayling single row in books table */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Mutation } from 'react-apollo';
@@ -7,7 +9,6 @@ import { Edit } from 'grommet-icons';
 
 import { TOGGLE_BOOK_SELECTION } from '../graphql/mutations/books';
 
-/** Component for displaying single row in books table */
 const BooksTableRow = ({ title, author, price, bookId, isSelected }) => {
   return (
     <TableRow>

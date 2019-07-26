@@ -1,3 +1,5 @@
+/** @file React component used as Edit book page */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Heading } from 'grommet';
@@ -12,6 +14,7 @@ import { GET_BOOKS, GET_BOOK } from '../../graphql/queries/books';
 import { EDIT_BOOK } from '../../graphql/mutations/books';
 
 const EditBook = ({ match, history }) => {
+  /** @type {number} ID of book passed via edit route  */
   const bookId = match.params.bookId;
 
   return (

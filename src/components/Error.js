@@ -1,10 +1,9 @@
+/** @file React component for displaying error message */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Text } from 'grommet';
 
-/**
- * Component for displaying error message
- */
 const Error = ({ message }) => {
   return (
     <Box

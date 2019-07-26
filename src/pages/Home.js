@@ -1,3 +1,5 @@
+/** @file React component used as Home page */
+
 import React from 'react';
 import { Query } from 'react-apollo';
 
@@ -12,7 +14,7 @@ import { GET_BOOKS } from '../graphql/queries/books';
 const Home = () => (
   <Query query={GET_BOOKS}>
     {({ loading, error, data = {} }) => {
-      /** Looping through books results and add 'isSelected' field if book is selected */
+      /** @type {object[]} Looping through books results and add 'isSelected' field if book is selected */
       const books = data.books
         ? data.books.map(({ bookId, ...book }) => ({
             bookId,
@@ -21,7 +23,7 @@ const Home = () => (
           }))
         : [];
 
-      /** Calculate price of all selected books */
+      /** @type {number} Calculate price of all selected books */
       const price = books.reduce((a, b) => a + (b.isSelected ? b.price : 0), 0);
 
       /** Method for easier rendering Loader component */

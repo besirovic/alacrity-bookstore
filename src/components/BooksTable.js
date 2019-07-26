@@ -1,10 +1,11 @@
+/** @file React component for displyaling books in form of table */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Table, TableHeader, TableBody, TableRow, TableCell } from 'grommet';
 
 import BooksTableRow from './BooksTableRow';
 
-/** Component for displaying books in form of table */
 const BooksTable = ({ books }) => (
   <Table margin={{ left: 'auto', right: 'auto', bottom: 'large' }}>
     <TableHeader>

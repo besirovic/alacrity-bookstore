@@ -1,3 +1,5 @@
+/** @file React app starting point */
+
 import React from 'react';
 
 import ApolloClient, { InMemoryCache } from 'apollo-boost';
@@ -14,25 +16,13 @@ import EditBookPage from './pages/books/Edit';
 import config from './config';
 import theme from './style/theme';
 
-/**
- * Exporting apollo server uri from config
- *
- * @type {stirng}
- */
+/** @type {stirng} URI of Apollo Server */
 const { uri } = config.apollo;
 
-/**
- * Create new instance of apollo inmemory cache
- *
- * @type {InMemoryCache}
- */
+/** @type {InMemoryCache} New instance of apollo inmemory cache */
 const cache = new InMemoryCache();
 
-/**
- * Create new instance of apollo client
- *
- * @type {ApolloClient}
- */
+/** @type {ApolloClient} New instance of apollo client */
 const client = new ApolloClient({
   uri,
   cache,
@@ -41,9 +31,7 @@ const client = new ApolloClient({
   },
 });
 
-/**
- * Write initial data to cache storage
- */
+/** Write initial data to cache storage */
 cache.writeData({
   data: {
     selectedBooks: [],

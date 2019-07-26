@@ -1,3 +1,5 @@
+/** @file Mutations for Book type */
+
 import { gql } from 'apollo-boost';
 
 import { BOOK_FRAGMENT } from '../fragments/books';

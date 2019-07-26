@@ -1,3 +1,5 @@
+/** @file React component representing app header */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -5,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { Box, Button, Text } from 'grommet';
 import { Add } from 'grommet-icons';
 
+/** Link component without text-decoration */
 const StyledLink = styled(Link)`
   &,
   &:hover {
@@ -12,7 +15,6 @@ const StyledLink = styled(Link)`
   }
 `;
 
-/** App header */
 const Header = ({ showAddNew, ...props }) => (
   <Box
     tag="header"

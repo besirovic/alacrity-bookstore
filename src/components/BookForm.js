@@ -1,3 +1,5 @@
+/** @file React component containing reusable form which can be used for creating new or editing existing book */
+
 import React from 'react';
 import * as yup from 'yup';
 import PropTypes from 'prop-types';
@@ -7,17 +9,14 @@ import { Link } from 'react-router-dom';
 
 import Error from '../components/Error';
 
-/** Reusable from component which can be used for creating and editing book */
 const BookForm = ({ book, error, loading, onSubmit }) => {
-  /** Error message do display when network or some other error occur */
+  /** @type {string} Error message do display when network or some other error occur */
   const errorMessage = 'Something went wrong, please try again';
 
-  /** Error message to display when validation error occur */
+  /** @type {string} Error message to display when validation error occur */
   const validationErrorMessage = 'You must fill all inputs with correct data. Please try again';
 
-  /**
-   * Yup validation schema for valiating form
-   */
+  /** @type {object} Yup validation schema for valiating form */
   const validationSchema = yup.object().shape({
     title: yup.string().required(),
     author: yup.string().required(),

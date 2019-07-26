@@ -1,3 +1,4 @@
+/** @file Grommet custom theme */
 export default {
   global: {
     font: {

@@ -1,10 +1,7 @@
-/**
- * Config object contains all configuration variables at one place.
- * You can extend this object to add more configuration variables as needed.
- */
+/** @file Config file contains all configuration variables at one place. */
 export default {
   apollo: {
-    /** URI of Apollo server */
+    /** @type {sting} URI of Apollo server */
     uri: process.env.REACT_APP_APOLLO_SERVER_URI || 'http://localhost:4567/graphql',
   },
 };

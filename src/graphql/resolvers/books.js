@@ -1,3 +1,5 @@
+/** @file Local resolvers for Book type */
+
 import { gql } from 'apollo-boost';
 
 /**
@@ -6,15 +8,17 @@ import { gql } from 'apollo-boost';
  * @return {number}
  */
 const toggleBookSelection = (_root, { bookId }, { cache }) => {
-  /** Query for reading selected books from cache */
+  /** @type {object} Query for reading selected books from cache */
   const query = gql`
     query GetSelectedBooks {
       selectedBooks @client
     }
   `;
 
-  /** Read query from cache */
+  /** @type {object} Data fetched from cache for specifed query */
   const data = cache.readQuery({ query });
+
+  /** @type {object} Array of selected books */
   const { selectedBooks } = data;
 
   /**

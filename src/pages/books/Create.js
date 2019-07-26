@@ -1,3 +1,5 @@
+/** @file React component used as Crete book page */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Heading } from 'grommet';
@@ -13,7 +15,7 @@ import { CREATE_BOOK } from '../../graphql/mutations/books';
  * Method for updating already existing books data in cache after mutation execture
  */
 const updateCache = (cache, { data: { createBook } }) => {
-  /** Read books data from cacahe */
+  /** @type {object[]} Read books data from cacahe */
   const { books } = cache.readQuery({ query: GET_BOOKS });
 
   /** Add new book to already existing data and save it to cache again */

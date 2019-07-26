@@ -1,3 +1,5 @@
+/** @file Fragments defined on Book type */
+
 import { gql } from 'apollo-boost';
 
 /**
