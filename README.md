@@ -2,12 +2,12 @@
   <h1>Alaciry Law</h1>
 
   Simple bookstore app developed as interview tech test for [Alacrity Law](http://alacritylaw.com)
-  
+
   <br>
 </div>
 
-## Table of content
-- [Table of content](#table-of-content)
+<h2>Table of content</h2>
+
 - [Tools I used](#tools-i-used)
   - [Styling](#styling)
   - [GraphQL](#graphql)
