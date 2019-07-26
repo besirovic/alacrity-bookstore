@@ -1,68 +1,116 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<center>
+  <h1>Alaciry Law</h1>
 
-## Available Scripts
+  Simple bookstore app developed as interview tech test for [Alacrity Law](http://alacritylaw.com)
+  
+  <hr>
+</center>
 
-In the project directory, you can run:
+## Table of content
+- [Table of content](#table-of-content)
+- [Tools I used](#tools-i-used)
+  - [Styling](#styling)
+  - [GraphQL](#graphql)
+  - [State management](#state-management)
+  - [Forms](#forms)
+  - [Coding style](#coding-style)
+- [Installation](#installation)
+- [Run local server](#run-local-server)
+- [Run it locally](#run-it-locally)
+- [Available commands](#available-commands)
+- [Testing](#testing)
 
-### `npm start`
+## Tools I used
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+In following I will give a breaf overview of tools, libraries and framework I used in this app.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Styling
+For styling app I decide to use [Grommet](https://grommet.io), which is very simple React UI framwork, as well as [Styled-components](http://styled-components.com). Styled-componets are used by Grommet internally so I decide to used them in this project for writting few very simple custom styles.
 
-### `npm test`
+Beside of that I used normalize.css to reset default browser css.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### GraphQL
+For client-side implementation of GraphQL, I used Apollo Client as simplest and easiest way to work with GraphQL in client-side apps.
 
-### `npm run build`
+To make thigs even easier I used [apollo-boost](https://www.npmjs.com/package/apollo-boost) for setting up Apollo Client and [react-apollo](https://www.npmjs.com/package/react-apollo) for runnig queries and mutations from React components.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### State management
+When it comes to managing state in aplication I decide to not use solutions such as Redux or Mobx. Othervise, I used Apollo Client built in state management solution. That allowed me to make GraphQL single source of data in my app and manage state with simply writing local queries and mutations.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Forms
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To handle forms in this app I used [Formik](https://github.com/jaredpalmer/formik) which is very useful when it comes to handling form state, dealing with errors and handling form submission. I combine it with [Yup](https://www.npmjs.com/package/yup) for handling form validation.
 
-### `npm run eject`
+### Coding style
+To make code looks nice and consistant I used [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) with [StandardJS](https://standardjs.com) coding style.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Installation
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Before you try to run this project locally make sure you have installed NodeJS on your machine by running following command in your terminal:
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```sh
+node -v
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+If you get an error try to download and install NodeJS. More about it on official website [https://nodejs.org/en/](https://nodejs.org/en/)
 
-## Learn More
+To start, simple clone this repository by running next command in your terminal:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```sh
+git clone https://github.com/besirovic/alacrity-bookstore.git
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+After that navigate to just cloned repo and install dependencies by running
+```sh
+npm install
 
-### Code Splitting
+or 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+yarn install
+```
 
-### Analyzing the Bundle Size
+## Run local server
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Before you attempt to run the app make sure to run your local server which is required for app to work properly.
 
-### Making a Progressive Web App
+More details about how to do it are available on next link [https://github.com/alacrity-law/apollo-test-app](https://github.com/alacrity-law/apollo-test-app).
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Run it locally
 
-### Advanced Configuration
+Running app locally is very straight forward thing. To do it, open your terminal, navigate to repo and run start command by typing
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+```sh
+yarn start
 
-### Deployment
+or 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+npm start
+```
 
-### `npm run build` fails to minify
+Very quickly app should spin up and you should be able to see it in your browser.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Available commands
+
+| Command | Description                       |
+| ------- | --------------------------------- |
+| start   | Start app locally                 |
+| build   | Build app for production          |
+| test    | Run unit tests                    |
+| eject   | Eject app from react-scripts      |
+| cypress | Open Cypress runner and run tests |
+
+## Testing
+
+Since this is very simple app, I decide to not write any unit tests.
+
+Otherview, I used to write a couple Cypress test, such as testing process of creating new and editing existing book, testing header component or home page.
+
+To run this tests, in you terminal run `cypress` command from list of available commands, by typing:
+
+```sh
+yarn cypress
+
+or 
+
+npm run cypress
+```
