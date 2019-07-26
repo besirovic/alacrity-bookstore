@@ -15,7 +15,6 @@
   - [Forms](#forms)
   - [Coding style](#coding-style)
 - [Installation](#installation)
-- [Run local server](#run-local-server)
 - [Run it locally](#run-it-locally)
 - [Available commands](#available-commands)
 - [Testing](#testing)
@@ -69,13 +68,11 @@ or
 yarn install
 ```
 
-## Run local server
-
-Before you attempt to run the app make sure to run your local server which is required for app to work properly.
-
-More details about how to do it are available on next link [https://github.com/alacrity-law/apollo-test-app](https://github.com/alacrity-law/apollo-test-app).
 
 ## Run it locally
+
+> Before you attempt to run the app make sure to run your local server which is required for app to work properly.
+> More details about how to do it are available on next link [https://github.com/alacrity-law/apollo-test-app](https://github.com/alacrity-law/apollo-test-app).
 
 Running app locally is very straight forward thing. To do it, open your terminal, navigate to repo and run start command by typing
 
