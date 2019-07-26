@@ -3,7 +3,7 @@
 
   Simple bookstore app developed as interview tech test for [Alacrity Law](http://alacritylaw.com)
   
-  <hr>
+  <br>
 </div>
 
 ## Table of content
