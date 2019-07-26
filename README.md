@@ -74,6 +74,9 @@ yarn install
 > Before you attempt to run the app make sure to run your local server which is required for app to work properly.
 > More details about how to do it are available on next link [https://github.com/alacrity-law/apollo-test-app](https://github.com/alacrity-law/apollo-test-app).
 
+>Once you get your local server running, make sure to provide it's url to client app by creating `.env` file in root of project. As reference for it you can use `.env.example` file.
+> If you don't provide your own url to app it will use `http://localhost:4567/graphql` as default url for GraphQL server.
+
 Running app locally is very easy thing. To do it, open your terminal, navigate to repo and run start command by typing
 
 ```sh
